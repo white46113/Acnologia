@@ -1,0 +1,19 @@
+{
+    "name": "lava/acnologia",
+    "description": "simple framwork of php",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lava\\Acnologia\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "white46113",
+            "email": "shadowlord46113@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {}
+}
