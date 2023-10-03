@@ -3,6 +3,13 @@
     "description": "simple framwork of php",
     "type": "library",
     "license": "MIT",
+    "readme": "",
+    "keywords": ["framwork","php","acnologia"],
+    "support":{
+        "issues":"https://github.com/white46113/Acnologia/issues",
+        "source":"https://github.com/white46113/Acnologia",
+        "wiki":"https://github.com/white46113/Acnologia/wiki"
+    },
     "autoload": {
         "psr-4": {
             "Lava\\Acnologia\\": "src/"
@@ -11,9 +18,17 @@
     "authors": [
         {
             "name": "white46113",
-            "email": "shadowlord46113@gmail.com"
+            "email": "shadowlord46113@gmail.com",
+            "role":"Developer"
         }
     ],
     "minimum-stability": "alpha",
-    "require": {}
+    "require": {
+        "ext-mbstring":"*",
+        "ext-iconv":"*",
+        "ext-pdo":"*",
+        "ext-json":"*",
+        "ext-curl":"*",
+        "ext-simplexml":"*"
+    }
 }
