@@ -29,9 +29,10 @@ class DatabaseConnection implements DatabaseConnectionInterface
                 $params
             );
             
-        }catch(PDOException $exception){
-            throw new DatabaseConnectionException($exception->getMessage(),$exception->getCode());
+        }catch(Exception $exception){
+            throw new DatabaseConnectionException($exception->getMessage(),(int)$exception->getCode());
         }
+        return $this->dbh;
     }
     
     public function close()
