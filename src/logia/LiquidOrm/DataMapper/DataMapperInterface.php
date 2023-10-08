@@ -1,6 +1,6 @@
 <?php
 
-namespace logia\DataMapper;
+namespace logia\LiquidOrm\DataMapper;
 
 interface DataMapperInterface
 {
