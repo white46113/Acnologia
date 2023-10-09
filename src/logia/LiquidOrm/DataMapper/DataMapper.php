@@ -105,4 +105,17 @@ Class DataMapper implements DataMapperInterface
         }
     }
 
+    public function buildQueryParameters($conditions,$parametes){
+        return (!empty($parametes) || !empty($conditions) ? array_merge($conditions,$parametes) : $parametes);
+    }
+
+    public function persist($sql_query,$parametes){
+        try{
+            return $this->prepare($sql_query)->bindParameters($parametes)->execute();
+        }
+        catch(Throwable $throwable){
+            throw $throwable;
+        }
+    }
+
 }

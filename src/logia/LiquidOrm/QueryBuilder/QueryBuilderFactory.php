@@ -1,6 +1,7 @@
 <?php
 namespace logia\LiquidOrm\QueryBuilder;
 use logia\LiquidOrm\QueryBuilder\QueryBuilderInterface;
+use logia\LiquidOrm\QueryBuilder\Exception\QueryBuilderException;
 Class QueryBuilderFactory
 {
 
@@ -13,6 +14,7 @@ Class QueryBuilderFactory
         {
             throw new QueryBuilderException($query_builder_str. 'is not valid object');
         }
+        return $query_builder_str;
     }
 
 }
