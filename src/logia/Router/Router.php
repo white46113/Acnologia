@@ -2,6 +2,8 @@
 
 namespace logia\Router;
 use logia\Router\RouterInterface;
+use logia\Router\Exception\RouterException;
+use logia\Router\Exception\RouterBadMethodCallException;
 Class Router implements RouterInterface
 {
     protected  $routes = [];
@@ -23,14 +25,14 @@ Class Router implements RouterInterface
                 if(is_callable($controller_object,$action)){
                     $controller_object->$action();
                 }else{
-                    throw new Exception();
+                    throw new RouterBadMethodCallException();
                 }
                 
             }else{
-                throw new Exception();
+                throw new RouterException();
             }
         }else{
-            throw new Exception();
+            throw new RouterException();
         }
     } 
     public function transformUpperCamelCase($string = ''){

@@ -8,9 +8,9 @@ interface DataMapperInterface
 
     public function bind($value = '');
 
-    public function bindParameters($field = [],$is_seach = false);
+    public function bindParameters($field = [],$is_seach = false,$optional = []);
 
-    public function numrow();
+    public function numRows();
 
     public function execute();
 
