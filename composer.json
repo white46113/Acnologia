@@ -29,6 +29,7 @@
         "ext-pdo":"*",
         "ext-json":"*",
         "ext-curl":"*",
-        "ext-simplexml":"*"
+        "ext-simplexml":"*",
+        "twig/twig": "^2.12"
     }
 }
