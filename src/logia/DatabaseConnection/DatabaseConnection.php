@@ -3,6 +3,8 @@
 namespace logia\DatabaseConnection;
 use PDO;
 use logia\DatabaseConnection\Exception\DatabaseConnectionException;
+use PDOException;
+
 class DatabaseConnection implements DatabaseConnectionInterface
 {
     protected $dbh = '';
@@ -29,7 +31,7 @@ class DatabaseConnection implements DatabaseConnectionInterface
                 $params
             );
             
-        }catch(Exception $exception){
+        }catch(PDOException $exception){
             throw new DatabaseConnectionException($exception->getMessage(),(int)$exception->getCode());
         }
         return $this->dbh;

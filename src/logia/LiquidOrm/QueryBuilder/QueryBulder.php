@@ -20,7 +20,7 @@ class QueryBuilder extends AbstractQueryBuilder
         parent::__construct();
     }
 
-    public function buildQuery(array $args = []) : self
+    public function buildQuery(array $args = []) 
     {
         if (count($args) < 0) {
             throw new BaseInvalidArgumentException('Your BuildQuery method has no defined argument. Please fix this');
@@ -43,7 +43,7 @@ class QueryBuilder extends AbstractQueryBuilder
         return false;
     }
 
-    public function selectQuery() : string
+    public function selectQuery()
     {
         if ($this->isQueryTypeValid('select')) {
             $selectors = (!empty($this->key['selectors'])) ? implode(", ", $this->key['selectors']) : '*';
@@ -59,7 +59,7 @@ class QueryBuilder extends AbstractQueryBuilder
         return false;
     }
 
-    public function updateQuery() : string
+    public function updateQuery() 
     {
         if ($this->isQueryTypeValid('update')) {
             if (is_array($this->key['fields']) && count($this->key['fields']) > 0) {
@@ -83,7 +83,7 @@ class QueryBuilder extends AbstractQueryBuilder
         return false;
     }
 
-    public function deleteQuery() : string
+    public function deleteQuery()
     {
         if ($this->isQueryTypeValid('delete')) {
             $index = array_keys($this->key['conditions']);
@@ -100,7 +100,7 @@ class QueryBuilder extends AbstractQueryBuilder
         return false;
     }
 
-    public function searchQuery() : string
+    public function searchQuery()
     {
         if ($this->isQueryTypeValid('search ')) {
             if (is_array($this->key['selectors']) && $this->key['selectors'] != '') {
@@ -122,7 +122,7 @@ class QueryBuilder extends AbstractQueryBuilder
         return false;
     }
 
-    public function rawQuery(): string
+    public function rawQuery()
     {
         if ($this->isQueryTypeValid('raw')) {
             $this->sqlQuery = $this->key['raw'];

@@ -147,7 +147,7 @@ class DataMapper implements DataMapperInterface
      * @throws BaseInvalidArgumentException
      * @var  $value 
      */
-    protected function bindSearchValues(array $fields) :  PDOStatement
+    protected function bindSearchValues( $fields)
     {
         $this->isArray($fields); // don't need
         foreach ($fields as $key => $value) {
@@ -228,7 +228,7 @@ class DataMapper implements DataMapperInterface
      * @param array $parameters
      * @return array
      */
-    public function buildQueryParameters(array $conditions = [], array $parameters = []) : array
+    public function buildQueryParameters( $conditions = [],  $parameters = []) 
     {
         return (!empty($parameters) || (!empty($conditions)) ? array_merge($conditions, $parameters) : $parameters);
     }
@@ -241,7 +241,7 @@ class DataMapper implements DataMapperInterface
      * @return mixed
      * @throws Throwable
      */
-    public function persist(string $sqlQuery, array $parameters)
+    public function persist( $sqlQuery,  $parameters)
     {
         try {
             return $this->prepare($sqlQuery)->bindParameters($parameters)->execute();

@@ -1,6 +1,8 @@
 <?php
 
 namespace logia\LiquidOrm\DataMapper;
+use logia\LiquidOrm\DataMapper\Exception\DataMapperException;
+
 Class DataMapperFactory 
 {
     public function __contruct(){

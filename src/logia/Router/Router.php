@@ -15,7 +15,7 @@ Class Router implements RouterInterface
     }
     public function dispatch($url = ''){
         if($this->match($url)){
-            $controller_string = $this->param['controller'];
+            $controller_string = $this->params['controller'];
             $controller_string = $this->transformUpperCamelCase($controller_string);
             $controller_string = $this->getNameSpace($controller_string);
             if(class_exists($controller_string)){
@@ -42,7 +42,7 @@ Class Router implements RouterInterface
         return lcfirst($this->transformUpperCamelCase($string));
     }
     public function match($url = ''){
-        foreach($this->$routes as $route => $params){
+        foreach($this->routes as $route => $params){
             if(preg_match($route,$url,$matches)){
                 foreach ($matches as $key => $param){
                     if(is_string($key)){

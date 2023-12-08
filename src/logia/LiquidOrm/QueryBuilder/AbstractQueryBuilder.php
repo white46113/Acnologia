@@ -14,7 +14,7 @@ abstract class AbstractQueryBuilder implements QueryBuilderInterface
     protected  $sqlQuery = '';
 
     /** @var array */
-    protected  SQL_DEFAULT = [
+    const  SQL_DEFAULT = [
         'conditions' => [],
         'selectors' => [],
         'replace' => false,
@@ -35,7 +35,7 @@ abstract class AbstractQueryBuilder implements QueryBuilderInterface
     ];
 
     /** @var array */
-    protected  QUERY_TYPES = ['insert', 'select', 'update', 'delete', 'raw', 'search', 'join'];
+    const  QUERY_TYPES = ['insert', 'select', 'update', 'delete', 'raw', 'search', 'join'];
 
     /**
      * Main class constructor
