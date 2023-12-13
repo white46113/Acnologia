@@ -11,7 +11,9 @@ class SessionFactory
 {
 
     public function __construct()
-    { }
+    {
+        
+     }
 
     /**
      * Factory method which creates the specified cache along with the specified kind of session storage.
@@ -26,7 +28,7 @@ class SessionFactory
     {
         $storageObject = new $storageString($options);
         if (!$storageObject instanceof SessionStorageInterface) {
-            throw new BaseUnexpectedValueException($storageString . ' is not a valid session storage object.');
+            // throw new BaseUnexpectedValueException($storageString . ' is not a valid session storage object.');
         }
 
         return new Session($sessionName, $storageObject);

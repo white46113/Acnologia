@@ -1,6 +1,7 @@
 <?php
 
 namespace logia\Router;
+// require_once ROOT_PATH . '/App/Controller/HomeController.php';
 use logia\Router\RouterInterface;
 use logia\Router\Exception\RouterException;
 use logia\Router\Exception\RouterBadMethodCallException;
@@ -8,28 +9,39 @@ Class Router implements RouterInterface
 {
     protected  $routes = [];
     protected  $params = [];
-    protected $controller_sufix = 'controller';
+    protected $controller_sufix = 'Controller';
 
     public function add($route = '',$params = []){
-        $this->routes[$route] = $params;
+         // Convert the route to a regular expression: escape forward slashes
+         $route = preg_replace('/\//', '\\/', $route);
+
+         // Convert variables e.g. {controller}
+        //  $route = preg_replace('/\{([a-z]+)\}/', '(?P<\1>[a-z-]+)', $route);
+         // Convert variables with custom regular expressions e.g. {id:\d+}
+        //  $route = preg_replace('/\{([a-z]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
+ 
+         // Add start and end delimiters, and case insensitive flag
+         $route = '/^' . $route . '$/i';
+         
+         $this->routes[$route] = $params;
     }
     public function dispatch($url = ''){
         if($this->match($url)){
-            $controller_string = $this->params['controller'];
-            $controller_string = $this->transformUpperCamelCase($controller_string);
-            $controller_string = $this->getNameSpace($controller_string);
+            $controller_string = $this->params['controller'] .$this->controller_sufix;
+            $controller_string = $this->transformUpperCamelCase($controller_string);   
+            $controller_string = $this->getNameSpace($controller_string).$controller_string;     
             if(class_exists($controller_string)){
                 $controller_object = new $controller_string;
                 $action = $this->params['action'];
                 $action = $this->transformCamelCase($action);
-                if(is_callable($controller_object,$action)){
-                    $controller_object->$action();
+                if(method_exists($controller_object,$action)){
+                   $controller_object->$action();
                 }else{
                     throw new RouterBadMethodCallException();
                 }
                 
             }else{
-                throw new RouterException();
+                throw new RouterException('no class found');
             }
         }else{
             throw new RouterException();

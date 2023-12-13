@@ -1,5 +1,5 @@
 <?php
-namespace Magma\Base;
+namespace logia\Base;
 
 use logia\Base\Exception\BaseBadMethodCallException;
 use logia\Base\Exception\BaseInvalidArgumentException;
@@ -21,7 +21,7 @@ class BaseController
      * @param array $routeParams
      * @return void
      */
-    public function __construct(array $routeParams)
+    public function __construct($routeParams)
     {
         $this->routeParams = $routeParams;
         $this->twig = new BaseView();

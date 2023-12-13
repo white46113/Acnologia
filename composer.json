@@ -12,7 +12,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Lava\\Acnologia\\": "src/"
+            "logia\\": "src/logia",
+            "App\\":"App"
         }
     },
     "authors": [

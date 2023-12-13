@@ -1,0 +1,9 @@
+driver:
+  mysql:
+    dsn: mysql:host=localhost;port=3306;dbname=framework;charset=utf8mb4
+    username: root
+    password: 'csnik86BGW'
+  pgsql:
+    dsn: pgsql:host=localhost;dbname=framework;charset=utf8mb4
+    username: root
+    password: ''

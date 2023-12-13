@@ -17,6 +17,7 @@ class SessionManager
      */
     public static function initialize()
     {
+        // echo 'test';die;
         $factory = new SessionFactory();
         return $factory->create('Acnologia', \logia\Session\Storage\NativeSessionStorage::class, YamlConfig::file('session'));
     }
